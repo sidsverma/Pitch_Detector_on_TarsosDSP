@@ -103,8 +103,7 @@ public class MainActivity extends AppCompatActivity
 //        startPitchShifting();
     }
 
-//    This function is going to be used to do pitch shifting. Currently, experiencing some errors around ffmpeg.
-//    java.lang.Error: Decoding via a pipe will not work: Could not find an ffmpeg binary for your system.
+//    This function is going to be used to do pitch shifting. Currently, experiencing some errors around processing
 
 //    private void startPitchShifting()
 //    {
@@ -114,13 +113,16 @@ public class MainActivity extends AppCompatActivity
 //        WaveformSimilarityBasedOverlapAdd wsola;
 //
 //        File downloadFolder = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
+//        new AndroidFFMPEGLocator(this);
 //
-//        String mAudiopath = downloadFolder.getPath() + "/test.wav";
+//        String mAudiopath = downloadFolder.getAbsolutePath() + "/test.wav";
+////        String mAudiopath = "/storage/emulated/0/Download/test.wav";
 //        dispatcher = AudioDispatcherFactory.fromPipe(mAudiopath, 44100, 5000, 2500);
 ////        dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(22050,1024,0);
 //        rateTransposer = new RateTransposer(rate);
 //        wsola = new WaveformSimilarityBasedOverlapAdd(WaveformSimilarityBasedOverlapAdd.Parameters.musicDefaults(rate, 44100));
-//        File f = new File(getFilesDir(), "ttttest.mp3");
+//        File f = new File(downloadFolder.getAbsolutePath(), "shifting.wav");
+////        File f = new File("/storage/emulated/0/Download/outputshift.wav");
 //        RandomAccessFile raf = null;
 //        try
 //        {
@@ -138,6 +140,9 @@ public class MainActivity extends AppCompatActivity
 //        dispatcher.setZeroPadFirstBuffer(true);
 //        dispatcher.setZeroPadLastBuffer(true);
 //        dispatcher.addAudioProcessor(writer);
+////        dispatcher.run();
+//
+//        new Thread(dispatcher,"Shifting Dispatcher").start();
 //    }
 
     public static String hertzToNearestNote(float freq) {
